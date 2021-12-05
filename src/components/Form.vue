@@ -1,15 +1,15 @@
 <template>
   <div :class="$style['form-wrapper']">
+    <FormInputText
+      :text="text"
+      :error="errors.text"
+      @textChange="textChangeHandler"
+    />
     <FormInputUrl
       :url="url"
       :error="errors.url"
       @urlChange="urlChangeHandler"
       @submitForm="submitHandler"
-    />
-    <FormInputText
-      :text="text"
-      :error="errors.text"
-      @textChange="textChangeHandler"
     />
   </div>
 </template>
@@ -64,6 +64,9 @@ export default {
 
 <style module>
 .form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 </style>

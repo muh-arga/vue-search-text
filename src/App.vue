@@ -1,5 +1,6 @@
 <template>
   <BaseContainer>
+    <Logo />
     <Form @search="searchHandler" />
     <TextList v-if="!listEmpty" :list="results" :loading="isLoading" />
     <FetchStatus v-show="showFetchStatus" :message="statusMessage" />
@@ -19,9 +20,11 @@ import Form from "./components/Form";
 import TextList from "./components/TextList";
 import FetchStatus from "./components/FetchStatus";
 import Pagination from "./components/Pagination";
+import Logo from "./components/Logo";
 
 import getTexts from "./api/getTexts";
 import secondToHMS from "./utils/secondToHMS";
+
 
 export default {
   name: "App",
@@ -31,6 +34,7 @@ export default {
     TextList,
     FetchStatus,
     Pagination,
+    Logo,
   },
   data() {
     return {
@@ -53,7 +57,7 @@ export default {
     },
     statusMessage() {
       if (this.isLoading) {
-        return "Fetching data";
+        return "Loading data";
       } else if (this.notFound) {
         return "Video not found";
       } else if (this.noText) {
@@ -114,7 +118,7 @@ export default {
           };
         }
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
       }
       this.isLoading = false;
     },
@@ -153,7 +157,7 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto&display=swap");
 
 * {
   margin: 0;
@@ -162,13 +166,14 @@ export default {
 }
 
 :root {
-  --primary-color: #4069ff;
-  --secondary-color: #ffc934;
-  --shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  --primary-color: #fff;
+  --secondary-color: #2ab87d;
+  --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+
 body {
-  font-family: "Recursive", sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--primary-color);
 }
 

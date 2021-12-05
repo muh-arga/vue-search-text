@@ -52,7 +52,7 @@ export default {
   padding: 0.75rem;
   box-shadow: var(--shadow);
   border-radius: 3px;
-  background-color: white;
+  background-color: #fff;
   margin: 1rem 0;
 }
 

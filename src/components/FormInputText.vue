@@ -5,7 +5,7 @@
       name="text"
       id="text"
       :value="$props.text"
-      placeholder="Search text"
+      placeholder="Text"
       :class="inputClasses"
       @input="textChangeHandler"
     />
@@ -43,5 +43,6 @@ export default {
 .text-search {
   width: 50%;
   box-shadow: var(--shadow);
+  margin-bottom: 1rem;
 }
 </style>

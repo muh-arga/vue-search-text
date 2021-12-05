@@ -6,7 +6,7 @@
         name="url"
         id="url"
         :value="$props.url"
-        placeholder="Input YouTube video URL"
+        placeholder="Youtube URL"
         :class="inputClasses"
         @input="changeHandler"
       />
@@ -44,8 +44,7 @@ export default {
 
 <style module>
 .search {
-  width: 100%;
+  width: 50%;
   box-shadow: var(--shadow);
-  margin-bottom: 1rem;
 }
 </style>

@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const getTexts = (url, text, page) => {
-  const baseUrl = process.env.VUE_APP_API_BASE_URL;
+  const baseUrl = "https://github.com/jefrydco/cari-teks-video-api";
+
+  axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
   return axios.get(baseUrl, {
     params: {
