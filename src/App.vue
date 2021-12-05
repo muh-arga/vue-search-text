@@ -22,7 +22,7 @@ import FetchStatus from "./components/FetchStatus";
 import Pagination from "./components/Pagination";
 import Logo from "./components/Logo";
 
-import getTexts from "./api/getTexts";
+import textList from "./api/textList";
 import secondToHMS from "./utils/secondToHMS";
 
 
@@ -88,7 +88,7 @@ export default {
       this.results = [];
 
       try {
-        const response = await getTexts(url, text, this.page);
+        const response = await textList(url, text, this.page);
 
         if (response.status === 500) {
           throw new Error("Server error!");
@@ -130,7 +130,7 @@ export default {
       };
 
       try {
-        const response = await getTexts(this.url, this.text, newPage);
+        const response = await textList(this.url, this.text, newPage);
 
         if (response.status === 500) {
           throw new Error("Server error!");
